@@ -1,2 +1,2 @@
-# classification_models
+# classification-models
 Train, test, evaluate and deploy classification models the *hard* way.
