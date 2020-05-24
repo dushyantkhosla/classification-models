@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 
 from sklearn.tree import export_graphviz
-from src.classification_utils import get_model_scores
+from .model import get_model_scores
 
 
 def plot_precision_recall_curve(y_true, y_scores, label_pos_class, plot=False):
