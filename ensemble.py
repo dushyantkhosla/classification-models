@@ -3,12 +3,14 @@ import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-
+from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
+
+from classification-model import run_model
 
 # -------------- SETUP: LOGREG --------------
 
@@ -109,3 +111,16 @@ payloads = {
         'grid': grid_rfo
     }
 }
+
+name = 'knn'
+
+result = run_model(
+    df=df,
+    name=f"{name}",
+    calibrate=True,
+    gscv=GridSearchCV(payloads[name]['pipe'],
+                      payloads[name]['grid'],
+                      scoring="roc_auc",
+                      cv=3,
+                      n_jobs=-1)
+)
