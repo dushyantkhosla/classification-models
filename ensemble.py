@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
 
-from classification-model import run_model
+from .model import run_model
 
 # -------------- SETUP: LOGREG --------------
 
